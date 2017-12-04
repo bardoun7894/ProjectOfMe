@@ -3,11 +3,13 @@ package com.example.bardouni.rxproject.commons.adapter
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import com.example.bardouni.rxproject.R
-import com.example.bardouni.rxproject.inflate
+import com.example.bardouni.rxproject.ViewType
+import com.example.bardouni.rxproject.ViewTypeDelegateAdapter
+import com.example.bardouni.rxproject.commons.extensions.inflate
 
 class LoadingDelegateAdapter: ViewTypeDelegateAdapter {
 
-    override fun onCreateViewHolder(parent: ViewGroup)=TurnsViewHolder(parent)
+    override fun onCreateViewHolder(parent: ViewGroup)= TurnsViewHolder(parent)
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: ViewType) {
 

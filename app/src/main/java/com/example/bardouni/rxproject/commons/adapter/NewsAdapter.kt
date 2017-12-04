@@ -1,12 +1,10 @@
-package com.example.bardouni.rxproject
+package com.example.bardouni.rxproject.commons.adapter
 
 import android.support.v4.util.SparseArrayCompat
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import com.example.bardouni.rxproject.commons.adapter.AdapterConstants
-import com.example.bardouni.rxproject.commons.adapter.LoadingDelegateAdapter
-import com.example.bardouni.rxproject.commons.adapter.ViewType
-import com.example.bardouni.rxproject.commons.adapter.ViewTypeDelegateAdapter
+import com.example.bardouni.rxproject.ViewType
+import com.example.bardouni.rxproject.ViewTypeDelegateAdapter
 
 
 class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -21,10 +19,16 @@ class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
     init {
-                delegateAdapters.put(AdapterConstants.LOADING, LoadingDelegateAdapter())
-                items = ArrayList()
-                items.add(loadingItem)
-           }
+
+            delegateAdapters.put(AdapterConstants.LOADING, LoadingDelegateAdapter())
+
+                   delegateAdapters.put(AdapterConstants.NEWS, NewsDelegateAdapter())
+            items = ArrayList()
+
+            items.add(loadingItem)
+
+    }
+
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         delegateAdapters.get(getItemViewType(position)).onBindViewHolder(holder, this.items[position])

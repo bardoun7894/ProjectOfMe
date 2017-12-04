@@ -1,7 +1,6 @@
 package com.example.bardouni.rxproject
 
 import com.example.bardouni.rxproject.commons.adapter.AdapterConstants
-import com.example.bardouni.rxproject.commons.adapter.ViewType
 
 /**
  * Created by bardouni on 12/4/2017.

@@ -1,4 +1,4 @@
-package com.example.bardouni.rxproject.commons.adapter
+package com.example.bardouni.rxproject
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
