@@ -8,7 +8,7 @@ import com.example.bardouni.rxproject.commons.adapter.LoadingDelegateAdapter
 import com.example.bardouni.rxproject.commons.adapter.ViewType
 import com.example.bardouni.rxproject.commons.adapter.ViewTypeDelegateAdapter
 
- 
+
 class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private  var items: ArrayList<ViewType>
