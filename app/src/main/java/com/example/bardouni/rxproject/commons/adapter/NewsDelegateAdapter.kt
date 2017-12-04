@@ -7,7 +7,9 @@ import com.example.bardouni.rxproject.RedditNewsItem
 import com.example.bardouni.rxproject.ViewType
 import com.example.bardouni.rxproject.ViewTypeDelegateAdapter
 import com.example.bardouni.rxproject.commons.extensions.inflate
+import com.example.bardouni.rxproject.commons.extensions.loadImg
 import getFriendlyTime
+import kotlinx.android.synthetic.main.news_item.view.*
 
 /**
  * Created by bardouni on 12/4/2017.
