@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.bardouni.rxproject.commons.adapter.NewsAdapter
 import com.example.bardouni.rxproject.commons.extensions.inflate
+import com.example.bardouni.rxproject.features.news.NewsManager
 import kotlinx.android.synthetic.main.fragment_news.*
 
 
@@ -17,6 +18,7 @@ class NewsFragment : Fragment() {
     private val newsList by lazy {
         news_list
     }
+    private val newsManager by lazy { NewsManager() }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -34,28 +36,21 @@ class NewsFragment : Fragment() {
         newsList.layoutManager = LinearLayoutManager(context)
         initAdapter()
         if (savedInstanceState == null) {
-            val news = mutableListOf<RedditNewsItem>()
-            for (i in 1..10) {
-                news.add(RedditNewsItem(
-                        "author$i",
-                        "Title $i",
-                        i, // number of comments
-                        1457207701L - i * 200, // time
-                        "http://lorempixel.com/200/200/technics/$i", // image url
-                        "url"
-                ))
-            }
-            (news_list.adapter as NewsAdapter).addNews(news)
+            requestNews()
+
         }
     }
+
+    private fun requestNews() {
+//            (news_list.adapter as NewsAdapter).addNews(news)
+
+    }
+
     private fun initAdapter() {
         if (news_list.adapter == null) {
-            if (news_list.adapter == null) {
-                news_list.adapter = NewsAdapter()
+
                 news_list.adapter = NewsAdapter()
             }
         }
     }
 
-
-}
