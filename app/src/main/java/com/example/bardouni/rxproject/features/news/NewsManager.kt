@@ -25,7 +25,7 @@ class NewsManager {
             }
 
             subscriber.onNext(news)
- 
+
         }
     }
 }
