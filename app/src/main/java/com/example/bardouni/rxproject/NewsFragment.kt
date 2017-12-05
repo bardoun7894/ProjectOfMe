@@ -2,18 +2,20 @@ package com.example.bardouni.rxproject
 
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.bardouni.rxproject.commons.RxBaseFragment
 import com.example.bardouni.rxproject.commons.adapter.NewsAdapter
 import com.example.bardouni.rxproject.commons.extensions.inflate
 import com.example.bardouni.rxproject.features.news.NewsManager
 import kotlinx.android.synthetic.main.fragment_news.*
+import rx.schedulers.Schedulers
 
 
-class NewsFragment : Fragment() {
+class NewsFragment : RxBaseFragment() {
 
     private val newsList by lazy {
         news_list
@@ -42,8 +44,18 @@ class NewsFragment : Fragment() {
     }
 
     private fun requestNews() {
-//            (news_list.adapter as NewsAdapter).addNews(news)
 
+        val subscription = newsManager.getNews()
+                      .subscribeOn(Schedulers.io())
+                       .subscribe (
+                                     { retrievedNews ->
+                                      (news_list.adapter as NewsAdapter).addNews(retrievedNews)
+                                   },
+                           { e ->
+                                     Snackbar.make(news_list, e.message ?: "", Snackbar.LENGTH_LONG).show()
+                                }
+                   )
+        subscriptions.add(subscription)
     }
 
     private fun initAdapter() {
